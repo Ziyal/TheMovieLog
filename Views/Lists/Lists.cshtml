@@ -1,0 +1,46 @@
+@Html.Partial("Navbar-LoggedIn")
+
+<h1>Your Lists</h1>
+<hr>
+
+<div class="list_container">
+    <table class="table table-striped">
+        <thead>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Number of Movies</th>
+        </thead>
+        <tbody>
+        @{
+            foreach(var list in ViewBag.Lists) {
+                <tr>
+                    <td><a href="lists/@list.ListId">@list.Name</a></td>
+                    <td>@list.Description</td>
+                    <td>???</td>
+                </tr>
+            }
+        }
+        </tbody>
+    </table>
+
+    <button class="show_list_form btn btn-default btn-block">Add New List</button>
+
+    <form action="add_list" method="post" class="add_list_form form-inline">
+        <input type="text" name="Name" class="list_name form-control" placeholder="List name">
+        <input type="text" name="Description" class="list_description form-control" placeholder="List description">
+        <input type="submit" value="Create List" class="btn btn-success">
+    </form>
+
+    <script type="text/javascript">
+
+            $(function() {
+
+                $(".show_list_form").on("click", function(e){
+                    e.preventDefault();
+                    $(this).next('.add_list_form').fadeIn();
+                })
+
+            });
+
+    </script>
+</div>

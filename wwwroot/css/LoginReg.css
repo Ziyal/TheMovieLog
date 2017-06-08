@@ -1,0 +1,16 @@
+.login-container {
+    width:300px;
+    display: block;
+    margin: 0 auto;
+}
+
+.logreg-title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.register-container {
+    width:300px;
+    display: block;
+    margin: 0 auto;
+}
