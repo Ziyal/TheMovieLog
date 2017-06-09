@@ -1,1 +1,73 @@
-<h2>Table filled with movies on said list</h2>
+@Html.Partial("Navbar-LoggedIn")
+
+<h1>LIST: @ViewBag.List[0].Name</h1>
+<hr>
+
+<div class="list_container">
+
+
+    <table class="table table-striped">
+        <thead>
+            <th>Movie</th>
+            <th>Release</th>
+            <th>Action</th>
+        </thead>
+        <tbody>
+        @{
+            foreach(var movie in @ViewBag.List[0].Movies) {
+            <tr>
+                <td><a href="/movie/@movie.Id">@movie.Title</a></td>
+                <td>@movie.Release</td>
+                <td>
+                    <form action="delete_movie/@movie.MovieId/@ViewBag.List[0].ListId" method="post">
+                        <input type="submit" value="Delete" class="btn btn-default btn-xs">
+                    </form>
+                </td>
+            </tr>
+            }
+        }
+        </tbody>
+    </table>
+
+    <button class="show_search_container btn btn-default btn-block">Add New Movie to List</button>
+
+    <div class="search_container">
+        <input type="text" class="input_movie form-control" placeholder="Movie title goes here...">
+        <input type="submit" class="search_movie btn btn-block" value="Search">
+    </div>
+
+    <script type="text/javascript">
+        $(function() {
+
+            $(document).on("click", ".result_select", sendToServer);
+
+            function sendToServer() {
+
+                var params = {
+                    Id: $(this).attr("movie_id"),
+                    Title: $(this).attr("movie_title"),
+                    Release: $(this).attr("movie_release"),
+                    ListId: @ViewBag.List[0].ListId
+                };
+
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("SelectedMovie")',
+                    data: params,
+                    success: function(response) {
+                        source = $.parseJson(response.d);
+                    },
+                    error: function(err) {
+                        alert("Error")
+                    }
+                })
+            }
+        });
+
+    </script>
+
+    <div class="results_container">
+        <div class="results_title"></div>
+        <div class="search_results"></div>
+    </div>
+</div>

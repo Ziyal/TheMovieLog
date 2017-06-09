@@ -20,12 +20,5 @@ namespace MovieLog.Models
         public string FavoriteMovie { get; set; }
 
         public List<List> Lists { get; set; }
-        // public List<Comment> Comments { get; set; }
-
-        // public User () {
-        //     AccessLevel = "Normal";
-        //     Posts = new List<Post>();
-        //     Comments = new List<Comment>();
-        // } 
     }
 }

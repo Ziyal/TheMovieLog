@@ -8,7 +8,7 @@ namespace MovieLog.Models
         public MovieLogContext(DbContextOptions<MovieLogContext> options) : base(options) { }
         public DbSet<User> Users { get; set; }
         public DbSet<List> Lists { get; set; }
-        // public DbSet<Comment> Comments { get; set; }
+        public DbSet<Movie> Movies { get; set; }
 
     }
 }

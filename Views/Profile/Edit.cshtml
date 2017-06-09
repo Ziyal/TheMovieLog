@@ -1,0 +1,30 @@
+@Html.Partial("Navbar-LoggedIn")
+
+<div class="container">
+    <!--<div class="edit_container">-->
+        <h1>Edit Profile</h1>
+        <hr>
+
+        <form action="update_profile/@ViewBag.User.UserId" method="post">
+            <h5 class="profile_title">First Name</h5> 
+            <input type="text" name="FirstName" value="@ViewBag.User.FirstName" class="form-control">
+
+            <h5 class="profile_title">Last Name</h5> 
+            <input type="text" name="LastName" value="@ViewBag.User.LastName" class="form-control">
+
+            <h5 class="profile_title">Email</h5>
+            <input type="email" name="Email" value="@ViewBag.User.Email" class="form-control">
+
+            <h5 class="profile_title">About Me</h5>
+            <textarea type="text" name="About" value="@ViewBag.User.About" class="form-control"></textarea>
+
+            <h5 class="profile_title">Favorite Movie</h5>
+            <input type="text" name="FavoriteMovie" value="@ViewBag.User.FavoriteMovie" class="form-control"><br>
+
+            <input type="submit" value="Update Profile" class="btn btn-success btn-block"><br>
+
+        </form>
+
+    <!--</div>-->
+        <a href="profile"><button class="btn btn-default btn-block">Back</button></a>
+</div>

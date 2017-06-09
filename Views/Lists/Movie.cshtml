@@ -1,0 +1,45 @@
+@Html.Partial("Navbar-LoggedIn")
+
+<div class="page_container">
+    <h1>MOVIE</h1>
+    <hr>
+    <!--<h4>@ViewBag.ApiId</h4>-->
+
+    <div class="movie_container">
+
+        <ul class="movie_companies"></ul>
+
+    </div>
+
+    <div class="poster"></div>
+</div>
+
+<script type="text/javascript">
+        $(".movie_container").empty();
+
+        var ApiId = @ViewBag.ApiId;
+        var query = "https://api.themoviedb.org/3/movie/" + ApiId + "?api_key=eab968ac592b5893e49606022d016228&language=en-US"
+
+
+        $.ajax({
+            type: "GET",
+            url: query
+            }).done(function(response){
+
+                $(".movie_container").append("<h2 class='movie_title'>"+response.title+"</h2>")
+                $(".movie_container").append("<h3 class='movie_tagline'>"+response.tagline+"</h3>")
+                $(".movie_container").append("<p class='movie_overview'>"+response.overview+"</p>")
+                $(".poster").append("<img src='https://image.tmdb.org/t/p/w500"+response.poster_path+"' class='movie_poster'>")
+
+                $(".movie_container").append("<ul class='movie_companies'>")
+                for(var entry = 0; entry < response.production_companies.length; entry++) {
+                    $(".movie_container").append("<li>"+response.production_companies[entry].name+"</li>")
+                }
+                $(".movie_container").append("</ul>")
+                
+
+            })
+      
+
+
+</script>

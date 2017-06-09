@@ -1,6 +1,6 @@
 @Html.Partial("Navbar-LoggedIn")
 
-<h1>Your Lists</h1>
+<h1>YOUR LISTS</h1>
 <hr>
 
 <div class="list_container">
@@ -9,6 +9,7 @@
             <th>Name</th>
             <th>Description</th>
             <th>Number of Movies</th>
+            <th>Actions</th>
         </thead>
         <tbody>
         @{
@@ -17,6 +18,11 @@
                     <td><a href="lists/@list.ListId">@list.Name</a></td>
                     <td>@list.Description</td>
                     <td>???</td>
+                    <td>                     
+                        <form action="delete_list/@list.ListId" method="post">
+                            <input type="submit" value="Delete" class="btn btn-default btn-xs">
+                        </form>
+                    </td>
                 </tr>
             }
         }

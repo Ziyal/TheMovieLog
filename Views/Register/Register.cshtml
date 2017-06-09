@@ -8,17 +8,20 @@
     @Html.Partial("Navbar-Index")
     <div class="login-container">
         <div class="register">
-            <h3 class="update-title">Register</h3>
+            <h3 class="login-reg-title">Register</h3>
             <hr class="update-hr">
             <form action="register_user" method="post">
-                <h5 class="form-titles">First Name: </h5><input class="form-control" type="text" name="FirstName">
-                <h5 class="form-titles">Last Name: </h5><input class="form-control" type="text" name="LastName">
-                <h5 class="form-titles">Email: </h5><input class="form-control" type="text" name="Email">
-                <h5 class="form-titles">Password: </h5><input class="form-control" type="password" name="Password">
-                <h5 class="form-titles">Confirm Password: </h5><input class="form-control" type="password" name="PasswordC"><br>
+                <label class="form_titles">First Name: </label><input class="form-control" type="text" name="FirstName">
+                <label class="form_titles">Last Name: </label><input class="form-control" type="text" name="LastName">
+                <label class="form_titles">Email: </label><input class="form-control" type="text" name="Email">
+                <label class="form_titles">Password:</label><input class="form-control" type="password" name="Password">
+                <label class="form_titles">Confirm Password: </label><input class="form-control" type="password" name="PasswordC"><br>
                 <input class="btn btn-success login-btn btn-block" type="submit" value="Register"><br>
             </form>
         </div>
+
+        <a href="login"><button class="btn btn-default btn-s btn-block">Already registered?</button></a>
+        <br>
 
         <div class="errors">
             @{
@@ -29,7 +32,7 @@
                 }
             }
         </div>
-        <a href="login"><button class="btn btn-default btn-s btn-block">Already registered?</button></a>
+
     </div>
   </body>
 </html>

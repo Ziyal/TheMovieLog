@@ -1,0 +1,37 @@
+@Html.Partial("Navbar-LoggedIn")
+
+<div class="container">
+    <h1>Your Profile</h1>
+    <hr>
+
+    @{
+        if(@ViewBag.Success != null) {
+            <h6 class="success_message alert alert-success">@ViewBag.Success</h6>
+        }
+    }
+
+    <h5 class="profile_title">Name</h5> 
+    <p>@ViewBag.User.FirstName @ViewBag.User.LastName</p>
+
+    <h5 class="profile_title">Email</h5>
+    <p>@ViewBag.User.Email</p>
+
+    <h5 class="profile_title">About Me</h5>
+    <p>@ViewBag.User.About</p>
+
+    <h5 class="profile_title">Favorite Movie</h5>
+    <p>@ViewBag.User.FavoriteMovie</p>
+
+    <h5 class="profile_title">User Since</h5>
+    <p>@ViewBag.User.CreatedAt.ToString("MMMM yyyy")</p>
+
+    <a href="profile/edit"><button class="btn btn-default btn-block">Edit Profile</button></a>
+</div>
+
+
+<script type="text/javascript">
+        $(function() {
+
+            $(".success_message").delay(1000).fadeOut("slow");
+        });
+</script>

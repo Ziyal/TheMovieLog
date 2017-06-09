@@ -1,4 +1,3 @@
-using System;
 using MovieLog.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;

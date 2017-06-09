@@ -1,4 +1,6 @@
 using UserDashboard.Models;
+using System.Collections.Generic;
+using System;
 
 namespace MovieLog.Models
 {
@@ -8,9 +10,10 @@ namespace MovieLog.Models
         public string Name { get; set; }
         public string Description { get; set; }
         public int UserId { get; set; }
+        public List<Movie> Movies { get; set; }
 
-        // public List<Movie> Movies { get; set; }
-        // public List<Comment> Comments { get; set; }
-
+        public List () {
+            Movies = new List<Movie>();
+        }
     }
 }

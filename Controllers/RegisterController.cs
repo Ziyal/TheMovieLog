@@ -1,7 +1,5 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using UserDashboard.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -28,7 +26,7 @@ namespace MovieLog.Controllers
         [HttpPost]
         [Route("register_user")]
 
-        public IActionResult RegisterUser(User model) {
+        public IActionResult RegisterUser(UserViewModel model) {
             List<string> allErrors = new List<string>();
 
             if(ModelState.IsValid) {
@@ -41,7 +39,12 @@ namespace MovieLog.Controllers
                 }
 
                 PasswordHasher<User> Hasher = new PasswordHasher<User>();
-                User newUser = model;
+                User newUser = new User {
+                    FirstName = model.FirstName,
+                    LastName = model.LastName,
+                    Email = model.Email,
+                    Password = model.Password
+                };
 
                 newUser.Password = Hasher.HashPassword(newUser, newUser.Password);
 
@@ -49,7 +52,7 @@ namespace MovieLog.Controllers
                 _context.SaveChanges();
 
                 User user = _context.Users.SingleOrDefault(person => person.Email == model.Email);
-                HttpContext.Session.SetInt32("CurrUserId", CheckUser.UserId);
+                HttpContext.Session.SetInt32("CurrUserId", user.UserId);
                 return RedirectToAction("Success");
 
             }
@@ -59,13 +62,13 @@ namespace MovieLog.Controllers
                 }
             }
             TempData["Errors"] = allErrors;
-            return RedirectToAction("Register", model);
+            return RedirectToAction("RegisterPage", model);
         }
 
         [HttpGet]
         [Route("Register_Success")]
         public IActionResult Success() {
-            return RedirectToAction("Dashboard", "Dashbaord");
+            return RedirectToAction("Dashboard", "Dashboard");
         }
 
     

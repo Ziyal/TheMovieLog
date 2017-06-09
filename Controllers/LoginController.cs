@@ -1,7 +1,5 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using UserDashboard.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -43,9 +41,13 @@ namespace MovieLog.Controllers
                         return RedirectToAction("Success");
                     }
                     else {
-                        allErrors.Add("Incorrect email/password");
+                        allErrors.Add("Incorrect password");
                         TempData["Errors"] = allErrors;
                     }
+                }
+                else {
+                    allErrors.Add("Incorrect email");
+                    TempData["Errors"] = allErrors;
                 }
             }
             // Add errors to display
@@ -55,7 +57,7 @@ namespace MovieLog.Controllers
                 }
             }
             TempData["Errors"] = allErrors;
-            return RedirectToAction("Login");
+            return RedirectToAction("LoginPage");
         }
 
         [HttpGet]

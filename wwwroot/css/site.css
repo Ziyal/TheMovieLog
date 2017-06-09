@@ -2,6 +2,7 @@
 h1 {
     text-align: center;
     font-family: 'Jura', sans-serif;
+    margin-top: 10px;
 }
 
 body {
@@ -22,7 +23,20 @@ body {
     width: 85%;
     display: inline-block;
     text-align: center;
-    /*padding-left: 12%;*/
+    padding-left: 12%;
+    margin-top: 15px;
+}
+
+.carousel-indicators {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    z-index: 15;
+    width: 60%;
+    padding-left: 12%;
+    margin-left: -30%;
+    text-align: center;
+    list-style: none;
 }
 
 /* Navbar */
@@ -97,13 +111,13 @@ body {
 }
 
 
-/* Add Movie Page */
+/* Add Movie */
 .search_container {
     display: inline-block;
-    text-align: center;
-    width: 500px;
+    width: 300px;
     padding: 10px;
     margin: 10px;
+    display: none;
 }
 
 .search_results {
@@ -154,6 +168,84 @@ body {
 }
 
 .list_container {
+  display: block;
+  margin: 0 auto;
+  width: 70%;
+}
+
+.name_edit {
+    display: none;
+}
+
+
+
+/* Movie Page */
+
+.page_container {
+  display: block;
+  margin: 0 auto;
+  width: 70%;
+}
+
+.poster {
+  display: inline-block;
+  width: 20%;
+  vertical-align: top;
+}
+
+.movie_poster {
+  display: inline-block;
+  vertical-align: top;
+  width: 200px;
+  margin-top: 15px;
+}
+
+.movie_container {
   display: inline-block;
   width: 70%;
+  margin: 10px;
+}
+
+.movie_title {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.movie_tagline {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 20px;
+  margin-top: 5px;
+}
+
+ul {
+  list-style: none;
+}
+
+/*.movie_title {
+  display: inline-block;
+  width: 60%;
+
+}
+
+.movie_tagline {
+  display: inline-block;
+  width: 60%;
+  
+}
+
+.movie_overview {
+  display: inline-block;  
+  width: 60%;
+}*/
+
+/* PROFILE */
+.edit_container {
+  display: inline-block;
+  width: 50%;
+  margin: 10px;
+}
+
+.profile_title {
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 5px;
 }
