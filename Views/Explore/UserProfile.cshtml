@@ -1,0 +1,38 @@
+@Html.Partial("Navbar-LoggedIn")
+
+<div class="container">
+    <h1>@ViewBag.CurrentUser[0].FirstName @ViewBag.CurrentUser[0].LastName</h1>
+    <hr>
+
+    <h5 class="profile_title">Bio</h5>
+    <p>@ViewBag.CurrentUser[0].About</p>
+
+    <h5 class="profile_title">Favorite Movie</h5>
+    <p>@ViewBag.CurrentUser[0].FavoriteMovie</p>
+
+    <hr>
+
+    <h3 class="movie_title">@ViewBag.CurrentUser[0].FirstName's Lists</h3>
+    <table class="table table">
+        <thead>
+            <th>Title</th>
+            <th>Description</th>
+        </thead>
+        <tbody>
+        @{
+            foreach(var list in @ViewBag.CurrentUser[0].Lists) {
+            <tr>
+                <td><a href="/lists/@list.ListId">@list.Name</a></td>
+                <td>@list.Description</td>
+
+            </tr>
+            }
+        }
+        </tbody>
+    </table>
+
+
+
+
+
+</div>

@@ -11,9 +11,12 @@ namespace MovieLog.Models
         public string Description { get; set; }
         public int UserId { get; set; }
         public List<Movie> Movies { get; set; }
+        public User User { get; set; }
+        // public List<User> Users { get; set; }
 
         public List () {
             Movies = new List<Movie>();
+            // Users = new List<User>();
         }
     }
 }

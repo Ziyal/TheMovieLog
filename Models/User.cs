@@ -20,5 +20,10 @@ namespace MovieLog.Models
         public string FavoriteMovie { get; set; }
 
         public List<List> Lists { get; set; }
+
+        public User () {
+            Lists = new List<List>();
+        }
+
     }
 }

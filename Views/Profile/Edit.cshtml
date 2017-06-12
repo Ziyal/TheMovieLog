@@ -5,6 +5,12 @@
         <h1>Edit Profile</h1>
         <hr>
 
+        <h5 class="profile_title">Profile Photo</h5>
+        <form action="upload_profile_image" method="post" enctype="multipart/form-data">
+            <input type="file" name="ProfilePicture">
+            <input type="submit" value="Upload" class="btn btn-success">
+        </form>
+
         <form action="update_profile/@ViewBag.User.UserId" method="post">
             <h5 class="profile_title">First Name</h5> 
             <input type="text" name="FirstName" value="@ViewBag.User.FirstName" class="form-control">

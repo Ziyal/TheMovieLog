@@ -1,0 +1,51 @@
+@Html.Partial("Navbar-LoggedIn")
+
+<div class="container">
+    <h1>EXPLORE</h1>
+    <hr>
+
+    <h3>Users</h3>
+    <table class="table table">
+        <thead>
+            <th>Name</th>
+            <th>User Since</th>
+        </thead>
+        <tbody>
+        @{
+            foreach(var user in @ViewBag.AllUsers) {
+            <tr>
+                <td><a href="/user_profile/@user.UserId">@user.FirstName @user.LastName</a></td>
+                <td>@user.CreatedAt.ToString("MMMM yyyy")</td>
+
+            </tr>
+            }
+        }
+        </tbody>
+    </table>
+    <a href="all_users"><button class="btn btn-default btn-block">View All Users</button></a>
+
+
+    <h3>Lists</h3>
+    <table class="table table">
+        <thead>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Creator</th>
+        </thead>
+        <tbody>
+        @{
+            for(var list = 1; list <=5; list++) {
+            <tr>
+                <td><a href="/user_list/@ViewBag.AllLists[list].ListId">@ViewBag.AllLists[list].Name</a></td>
+                <td>@ViewBag.AllLists[list].Description</td>
+                <td><a href="user_profile/@ViewBag.AllLists[list].User.UserId">@ViewBag.AllLists[list].User.FirstName @ViewBag.AllLists[list].User.LastName</a></td>
+
+            </tr>
+            }
+        }
+        </tbody>
+    </table>
+    <a href="all_lists"><button class="btn btn-default btn-block">View All Lists</button></a>
+
+
+</div>

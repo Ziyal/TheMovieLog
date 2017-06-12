@@ -18,5 +18,12 @@ namespace MovieLog.Controllers
             HttpContext.Session.Clear();
             return View("Index");
         }
+
+        [HttpGet]
+        [RouteAttribute("about")]
+        public IActionResult About() {
+            return View("About");
+        }
+        
     }
 }

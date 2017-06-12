@@ -1,0 +1,29 @@
+@Html.Partial("Navbar-LoggedIn")
+
+<div class="container">
+    <h1>All Lists</h1>
+    <hr>
+    <h3>Lists</h3>
+    <table class="table table">
+        <thead>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Creator</th>
+        </thead>
+        <tbody>
+        @{
+            foreach(var list in @ViewBag.Lists) {
+            <tr>
+                <td><a href="/user_list/@list.ListId">@list.Name</a></td>
+                <td>@list.Description</td>
+                <td><a href="user_profile/@list.User.UserId">@list.User.FirstName @list.User.LastName</a></td>
+
+            </tr>
+            }
+        }
+        </tbody>
+    </table>
+    <a href="explore"><button class="btn btn-default btn-block">Back</button></a>
+
+
+</div>

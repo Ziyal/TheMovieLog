@@ -9,6 +9,7 @@ namespace MovieLog.Models
         public DbSet<User> Users { get; set; }
         public DbSet<List> Lists { get; set; }
         public DbSet<Movie> Movies { get; set; }
+        public DbSet<Image> Images { get; set; }
 
     }
 }

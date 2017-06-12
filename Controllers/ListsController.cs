@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Http;
@@ -122,6 +123,9 @@ namespace MovieLog.Controllers
                 Release = model.Release,
                 ListId = model.ListId
             };
+
+            List SelectedList = _context.Lists.SingleOrDefault(list => list.ListId == model.ListId);
+            SelectedList.UpdatedAt = DateTime.Now;
 
             _context.Add(newMovie);
             _context.SaveChanges();
