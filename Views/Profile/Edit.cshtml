@@ -1,15 +1,15 @@
 @Html.Partial("Navbar-LoggedIn")
 
-<div class="container">
-    <!--<div class="edit_container">-->
+<!--<div class="container">-->
+    <div class="edit_container">
         <h1>Edit Profile</h1>
         <hr>
 
-        <h5 class="profile_title">Profile Photo</h5>
-        <form action="upload_profile_image" method="post" enctype="multipart/form-data">
+        <!--<h5 class="profile_title">Profile Photo</h5>-->
+        <!--<form action="upload_profile_image" method="post" enctype="multipart/form-data">
             <input type="file" name="ProfilePicture">
             <input type="submit" value="Upload" class="btn btn-success">
-        </form>
+        </form>-->
 
         <form action="update_profile/@ViewBag.User.UserId" method="post">
             <h5 class="profile_title">First Name</h5> 
@@ -31,6 +31,6 @@
 
         </form>
 
-    <!--</div>-->
         <a href="profile"><button class="btn btn-default btn-block">Back</button></a>
-</div>
+    </div>
+<!--</div>-->

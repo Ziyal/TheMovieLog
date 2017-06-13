@@ -114,9 +114,6 @@ namespace MovieLog.Controllers
         [Route("SelectedMovie")]
         public IActionResult SelectedMovie(Movie model) {
 
-            System.Console.WriteLine("********************************");
-            System.Console.WriteLine(model.Title);
-
             Movie newMovie = new Movie {
                 Id = model.Id,
                 Title = model.Title,
@@ -137,8 +134,6 @@ namespace MovieLog.Controllers
         [Route("movie/{id}")]
         public IActionResult Movie(int id) {
             ViewBag.User = _context.Users.SingleOrDefault(person => person.UserId == (int)HttpContext.Session.GetInt32("CurrUserId"));
-            // ViewBag.User = CurrentUser;
-
 
             ViewBag.ApiId = id;
 

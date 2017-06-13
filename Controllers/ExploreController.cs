@@ -21,7 +21,7 @@ namespace MovieLog.Controllers
             User CurrentUser = _context.Users.SingleOrDefault(person => person.UserId == (int)HttpContext.Session.GetInt32("CurrUserId"));
             ViewBag.User = CurrentUser;
 
-            ViewBag.AllUsers = _context.Users;
+            ViewBag.AllUsers = _context.Users.OrderByDescending(user => user.CreatedAt);
 
             List<List> AllLists = _context.Lists.OrderByDescending(list => list.UpdatedAt).Include(u => u.User).ToList();
             ViewBag.AllLists = AllLists;
@@ -55,26 +55,6 @@ namespace MovieLog.Controllers
             return View("UserList");
         }
 
-        [HttpGet]
-        [Route("all_users")]
-        public IActionResult AllUsers() {
-
-            ViewBag.Users = _context.Users;
-
-            return View("AllUsers");
-        }
-
-        [HttpGet]
-        [Route("all_lists")]
-        public IActionResult AllLists() {
-
-            List<List> AllLists = _context.Lists.OrderByDescending(list => list.UpdatedAt).Include(u => u.User).ToList();
-            ViewBag.Lists = AllLists;
-
-            return View("AllUsers");
-        }
-
-    
 
     }
 }

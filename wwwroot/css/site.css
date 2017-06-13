@@ -6,7 +6,16 @@ h1 {
 }
 
 body {
-    background-color: #f2f2f2;
+  background-color: #f2f2f2;
+  height: 100%; 
+  width: 100%; 
+  margin: 0;
+}
+
+html { 
+  height: 100%; 
+  width: 100%; 
+  margin: 0;
 }
 
 p {
@@ -23,10 +32,12 @@ p {
 
 .container {
     width: 80%;
+    max-width: 1200px;
     background-color: white;
     display: block;
     margin: 0 auto;
     padding-bottom: 30px;
+    height: 100%;
 }
 
 .movie_db_logo {
@@ -39,7 +50,14 @@ p {
 
 /* Home Page */
 
-#myCarousel {
+.home_title {
+    text-align: center;
+    font-family: 'Jura', sans-serif;
+    margin-top: 50px;
+    font-size: 50px;
+}
+
+/*#myCarousel {
     width: 85%;
     display: inline-block;
     text-align: center;
@@ -57,7 +75,7 @@ p {
     margin-left: -30%;
     text-align: center;
     list-style: none;
-}
+}*/
 
 /* Navbar */
 .navbar-default {
@@ -130,6 +148,20 @@ p {
   }
 }
 
+/* DASHBOARD */
+.camera_img {
+  width: 100%;
+  max-width: 1200px;
+  position: relative;
+}
+
+.quote {
+  position: absolute;
+  top: 40%; 
+  left: 60%; 
+  width: 100%; 
+  color: white;
+}
 
 /* Add Movie */
 .search_container {
@@ -181,7 +213,6 @@ p {
 }
 
 /* Lists */
-
 .add_list_form {
     display: none;
     margin: 20px;
@@ -190,17 +221,14 @@ p {
 .list_container {
   display: block;
   margin: 0 auto;
-  width: 70%;
+  width: 75%;
 }
 
 .name_edit {
     display: none;
 }
 
-
-
 /* Movie Page */
-
 .page_container {
   display: block;
   margin: 0 auto;
@@ -259,13 +287,26 @@ ul {
 
 /* PROFILE */
 .edit_container {
-  display: inline-block;
-  width: 50%;
-  margin: 10px;
+  display: block;
+  margin: 0 auto;
+  width: 40%;
 }
 
 .profile_title {
   font-weight: bold;
   margin-top: 20px;
   margin-bottom: 5px;
+}
+
+/* EXPLORE */
+.explore_lists {
+  height: 250px;
+  overflow: auto;
+  padding-bottom: 50px;
+}
+
+.explore_users {
+  width: 70%;
+  height: 250px;
+  overflow: auto;
 }

@@ -3,3 +3,5 @@
 # WORK IN PROGRESS
 
 I'm using The Movie Database API to create a place where users can make lists of movies.
+
+![Home Page](https://github.com/Ziyal/TheMovieLog/blob/master/wwwroot/images/screenshots/home.png "Home Page")
