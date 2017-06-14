@@ -1,7 +1,7 @@
 @Html.Partial("Navbar-LoggedIn")
 
-<div class="container">
-    <h1>Your Profile</h1>
+<div class="list_container">
+    <h1>YOUR PROFILE</h1>
     <hr>
 
     @{
@@ -23,7 +23,7 @@
     <p>@ViewBag.User.FavoriteMovie</p>
 
     <h5 class="profile_title">User Since</h5>
-    <p>@ViewBag.User.CreatedAt.ToString("MMMM yyyy")</p>
+    <p>@ViewBag.User.CreatedAt.ToString("MMMM yyyy")</p><br>
 
     <a href="profile/edit"><button class="btn btn-default btn-block">Edit Profile</button></a>
 </div>

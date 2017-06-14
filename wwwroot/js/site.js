@@ -23,15 +23,18 @@ function search() {
 
         $(".results_title").empty();
         $(".results_title").append("<h3>Which movie?</h3><hr>");
+        $('.container').css('height', '');
 
         
 
         for(var item = 0; item < 10; item++) {
-            $(".search_results").append("<h3 class='result_title'>"+response.results[item].title+"</h3>");
-            $(".search_results").append("<p class='result_release'>"+response.results[item].release_date+"</p>");
-            $(".search_results").append("<p class='result_select response_summary'>"+response.results[item].overview+"</p>");
-            $(".search_results").append("<img src='https://image.tmdb.org/t/p/w500"+response.results[item].poster_path+"' style='max-width:200px;max-height:150px' class='result_image'>"); 
-            $(".search_results").append("<button name='button' class='result_select btn btn-default' movie_id='"+response.results[item].id+"'movie_title='"+response.results[item].title+"' movie_release='"+response.results[item].release_date+"'>Choose Film</button><hr>");
+            // $(".search_results").append("<h3 class='result_title'>"+response.results[item].title+"</h3>");
+            // $(".search_results").append("<p class='result_release'>"+response.results[item].release_date+"</p>");
+            // $(".search_results").append("<p class='result_select response_summary'>"+response.results[item].overview+"</p>");
+            // $(".search_results").append("<img src='https://image.tmdb.org/t/p/w500"+response.results[item].poster_path+"' style='max-width:200px;max-height:150px' class='result_image'>"); 
+            // $(".search_results").append("<button name='button' class='result_select btn btn-default result_btn' movie_id='"+response.results[item].id+"'movie_title='"+response.results[item].title+"' movie_release='"+response.results[item].release_date+"'>Choose Film</button><hr>");
+
+            $(".search_results").append("<div class='result_text_container'><h3 class='result_title'>"+response.results[item].title+"</h3><p class='result_release'>"+response.results[item].release_date+"</p><p class='result_select response_summary'>"+response.results[item].overview+"</p><br><button name='button' class='result_select btn btn-default result_btn' movie_id='"+response.results[item].id+"'movie_title='"+response.results[item].title+"' movie_release='"+response.results[item].release_date+"'>Choose Film</button></div><img src='https://image.tmdb.org/t/p/w500"+response.results[item].poster_path+"' style='max-width:200px;max-height:150px' class='result_image'><hr>")
         }
     });
 }

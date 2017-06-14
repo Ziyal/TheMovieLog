@@ -94,7 +94,7 @@ namespace MovieLog.Controllers
 
 
         [HttpPost]
-        [Route("delete_movie/{MovieId}/{ListId}")]
+        [Route("lists/delete_movie/{MovieId}/{ListId}")]
         public IActionResult DeleteMovie(int MovieId, int ListId) {
 
             System.Console.WriteLine("**************************");
@@ -107,7 +107,7 @@ namespace MovieLog.Controllers
             }
             _context.SaveChanges();
 
-            return RedirectToAction("Index");
+            return RedirectToAction("DisplayList", ListId);
         }        
 
         [HttpPost]
