@@ -14,11 +14,20 @@
         @{
             foreach(var list in ViewBag.Lists) {
                 <tr>
-                    <td><a href="lists/@list.ListId">@list.Name</a></td>
-                    <td>@list.Description</td>
-                    <td>                     
-                        <form action="delete_list/@list.ListId" method="post">
-                            <input type="submit" value="Delete" class="btn btn-default btn-xs">
+                    <td><a href="lists/@list.ListId" class="list_name">@list.Name</a>
+                    
+                        <form action="test" method="post" class="edit_name">
+                            <input type="text" name="Name" value="@list.Name">
+                        </form>
+                    </td>
+                    <td class="list_description" list_description="list_description">@list.Description</td>
+                    <td>                
+                        <form action="edit_list/@list.ListId" method="post" class="list_delete_btn">
+                            <input type="submit" value="Edit" class="btn btn-default btn-xs list_delete_btn action_btn">
+                        </form>
+
+                        <form action="delete_list/@list.ListId" method="post" class="list_delete_btn">
+                            <input type="submit" value="Delete" class="btn btn-default btn-xs list_delete_btn action_btn">
                         </form>
                     </td>
                 </tr>
@@ -39,8 +48,15 @@
 
             $(function() {
 
+                $(".list_edit_btn").on("click", function(e){
+                    e.preventDefault();
+                    $(this).next(".edit_name").fadeIn();
+                })
+
+                // Add New List BUTTON
                 $(".show_list_form").on("click", function(e){
                     e.preventDefault();
+                    $(".show_list_form").fadeOut();
                     $(this).next('.add_list_form').fadeIn();
                 })
 

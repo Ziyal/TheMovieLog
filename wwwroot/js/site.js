@@ -25,8 +25,6 @@ function search() {
         $(".results_title").append("<h3>Which movie?</h3><hr>");
         $('.container').css('height', '');
 
-        
-
         for(var item = 0; item < 10; item++) {
             // $(".search_results").append("<h3 class='result_title'>"+response.results[item].title+"</h3>");
             // $(".search_results").append("<p class='result_release'>"+response.results[item].release_date+"</p>");

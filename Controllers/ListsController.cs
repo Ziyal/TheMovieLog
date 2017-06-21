@@ -21,7 +21,6 @@ namespace MovieLog.Controllers
         [HttpGet]
         [Route("lists")]
         public IActionResult Index() {
-
             User CurrentUser = _context.Users.SingleOrDefault(person => person.UserId == (int)HttpContext.Session.GetInt32("CurrUserId"));
             ViewBag.User = CurrentUser;
 
@@ -48,16 +47,34 @@ namespace MovieLog.Controllers
             return RedirectToAction("Index");
         }
 
-        // [HttpPost]
-        // [Route("edit_list/{ListId}")]
-        // public IActionResult EditList(int ListId, List model) {
+        [HttpPost]
+        [Route("edit_list/{ListId}")]
+        public IActionResult EditList(int ListId) {
+            User CurrentUser = _context.Users.SingleOrDefault(person => person.UserId == (int)HttpContext.Session.GetInt32("CurrUserId"));
+            ViewBag.User = CurrentUser;
 
-        //     System.Console.WriteLine("***************************");
-        //     System.Console.WriteLine(model.Name);
-        //     System.Console.WriteLine(model.Description);
+            ViewBag.List = _context.Lists.SingleOrDefault(list => list.ListId == ListId);
 
-        //     return RedirectToAction("Index");
-        // }
+            return View("EditList");
+        }
+
+        [HttpPost]
+        [Route("update_list/{ListId}")]
+        public IActionResult UpdateList(int ListId, List model) {
+
+            System.Console.WriteLine("***************************");
+
+            List CurrentList = _context.Lists.SingleOrDefault(list => list.ListId == ListId);
+            CurrentList.Name = model.Name;
+            CurrentList.Description = model.Description;
+
+            _context.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
+
+        
 
         [HttpPost]
         [Route("add_list")]
@@ -84,10 +101,7 @@ namespace MovieLog.Controllers
 
             List<List> CurrentList = _context.Lists.Where(list => list.ListId == ListId).Include(list => list.Movies).ToList();
 
-            System.Console.WriteLine(CurrentList);
-
             ViewBag.List = CurrentList;
-
 
             return View("List");
         }
@@ -96,8 +110,6 @@ namespace MovieLog.Controllers
         [HttpPost]
         [Route("lists/delete_movie/{MovieId}/{ListId}")]
         public IActionResult DeleteMovie(int MovieId, int ListId) {
-
-            System.Console.WriteLine("**************************");
 
             List<Movie> MovieToRemove = _context.Movies.Where(movie => movie.ListId == ListId).ToList();
             foreach(var movie in MovieToRemove) {
@@ -114,6 +126,14 @@ namespace MovieLog.Controllers
         [Route("SelectedMovie")]
         public IActionResult SelectedMovie(Movie model) {
 
+            // var movieName = "";
+
+            // for(var i = 0; i < model.Title.Length; i++) {
+            //     if(model.Title[i] == "'") {
+
+            //     }
+            // }
+
             Movie newMovie = new Movie {
                 Id = model.Id,
                 Title = model.Title,
@@ -127,7 +147,7 @@ namespace MovieLog.Controllers
             _context.Add(newMovie);
             _context.SaveChanges();
 
-            return RedirectToAction("Index");
+            return RedirectToAction("DisplayList", newMovie.ListId);
         }
 
         [HttpGet]
@@ -139,8 +159,5 @@ namespace MovieLog.Controllers
 
             return View("Movie");
         }
-        
-
-        
     }
 }

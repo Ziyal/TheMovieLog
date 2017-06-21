@@ -148,8 +148,8 @@ td {
 
 .quote {
   position: absolute;
-  top: 40%; 
-  left: 60%; 
+  top: 36%; 
+  left: 53%; 
   width: 100%; 
   color: white;
 }
@@ -204,7 +204,6 @@ td {
 
 .response_summary {
   display: inline-block;
-  /*width: 60%;*/
   margin-right: 30px;
 }
 
@@ -217,13 +216,12 @@ td {
 /* Lists */
 .add_list_form {
     display: none;
-    margin: 20px;
+    margin: 60px;
 }
 
 .list_container {
   display: block;
   margin: 0 auto;
-  /*margin-top: 20px;*/
   width: 75%;
 }
 
@@ -271,23 +269,6 @@ ul {
   list-style: none;
 }
 
-/*.movie_title {
-  display: inline-block;
-  width: 60%;
-
-}
-
-.movie_tagline {
-  display: inline-block;
-  width: 60%;
-  
-}
-
-.movie_overview {
-  display: inline-block;  
-  width: 60%;
-}*/
-
 /* PROFILE */
 .edit_container {
   display: block;
@@ -295,12 +276,35 @@ ul {
   width: 40%;
 }
 
-.profile_title {
+.edit_profile_title {
   font-family: 'Jura', sans-serif;
-  font-size: 15px;
+  font-size: 16px;
+  margin-bottom: 2px;
+  margin-top: 15px;
+}
+
+.profile_container {
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+
+.profile_title {
+  display: inline-block;
+  width: 45%;
+  font-family: 'Jura', sans-serif;
+  font-size: 16px;
   font-weight: bold;
   margin-top: 20px;
   margin-bottom: 5px;
+  margin-right: 12px;
+  text-align: right;
+}
+
+.profile_text {
+  display: inline-block;
+  width: 49%;
 }
 
 /* EXPLORE */
@@ -317,8 +321,27 @@ ul {
 }
 
 .user_profile_title {
-    text-align: center;
-    font-family: 'Jura', sans-serif;
-    margin-top: 20px;
-    font-size: 30px;
+  text-align: center;
+  font-family: 'Jura', sans-serif;
+  margin-top: 20px;
+  font-size: 30px;
 }
+
+.edit_name {
+  display: none;
+}
+
+.form_titles {
+  font-family: 'Jura', sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.list_edit_btn {
+  display: inline-block;
+}
+
+.list_delete_btn {
+  display: inline-block;
+}
+

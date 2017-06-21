@@ -21,8 +21,11 @@ namespace MovieLog.Models
 
         public List<List> Lists { get; set; }
 
+        public List<Follower> Followers { get; set; }
+
         public User () {
             Lists = new List<List>();
+            Followers = new List<Follower>();
         }
 
     }

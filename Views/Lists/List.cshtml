@@ -49,6 +49,7 @@
                     ListId: @ViewBag.List[0].ListId
                 };
 
+                // Send movie data to server
                 $.ajax({
                     type: "POST",
                     url: '@Url.Action("SelectedMovie")',
@@ -56,9 +57,9 @@
                     success: function(response) {
                         source = $.parseJson(response.d);
                     },
-                    error: function(err) {
-                        alert("Error")
-                    }
+                    // error: function(err) {
+                    //     alert("Error")
+                    // }
                 })
             }
         });

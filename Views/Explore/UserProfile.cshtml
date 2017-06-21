@@ -4,23 +4,31 @@
     <h1>@ViewBag.CurrentUser[0].FirstName @ViewBag.CurrentUser[0].LastName</h1>
     <hr>
 
-    <h5 class="profile_title">Bio:</h5>
-    <p>@ViewBag.CurrentUser[0].About</p>
+    <div class="profile_container">
+        <h5 class="profile_title">Bio:</h5>
+        <p class="profile_text">@ViewBag.CurrentUser[0].About</p>
 
-    <h5 class="profile_title">Favorite Movie:</h5>
-    <p>@ViewBag.CurrentUser[0].FavoriteMovie</p>
+        <h5 class="profile_title">Favorite Movie:</h5>
+        <p class="profile_text">@ViewBag.CurrentUser[0].FavoriteMovie</p>
 
-    <h5 class="profile_title">User Since:</h5>
-    <p>@ViewBag.CurrentUser[0].CreatedAt.ToString("MM/dd/yyyy")</p>
+        <h5 class="profile_title">User Since:</h5>
+        <p class="profile_text">@ViewBag.CurrentUser[0].CreatedAt.ToString("MM/dd/yyyy")</p>
+    </div>
+
+    <!--<button class="btn btn-block"><a href="/follow/@ViewBag.CurrentUser[0].UserId">Follow @ViewBag.CurrentUser[0].FirstName @ViewBag.CurrentUser[0].LastName</a></button>
+
+    <form action="/follow/@ViewBag.CurrentUser[0].UserId">
+        <input type="submit" value="Follow @ViewBag.CurrentUser[0].FirstName @ViewBag.CurrentUser[0].LastName">
+    </form>-->
 
     <!--<hr>-->
 
-    <h3 class="user_profile_title">@ViewBag.CurrentUser[0].FirstName's Lists</h3>
+    <!--<h3 class="user_profile_title">@ViewBag.CurrentUser[0].FirstName's Lists</h3>-->
     <table class="table table">
         <thead>
-            <th class="profile_title">Title</th>
-            <th class="profile_title">Description</th>
-            <th class="profile_title">Created</th>
+            <th class="form_titles">Title</th>
+            <th class="form_titles">Description</th>
+            <th class="form_titles">Created</th>
         </thead>
         <tbody>
         @{

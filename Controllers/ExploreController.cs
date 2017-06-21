@@ -23,7 +23,7 @@ namespace MovieLog.Controllers
 
             ViewBag.AllUsers = _context.Users.OrderByDescending(user => user.CreatedAt);
 
-            List<List> AllLists = _context.Lists.OrderByDescending(list => list.UpdatedAt).Include(u => u.User).ToList();
+            List<List> AllLists = _context.Lists.OrderByDescending(list => list.CreatedAt).Include(u => u.User).ToList();
             ViewBag.AllLists = AllLists;
             
             return View("Explore");
@@ -54,6 +54,17 @@ namespace MovieLog.Controllers
 
             return View("UserList");
         }
+
+        [HttpPost]
+        [Route("follow/{FollowingId}")]
+        public IActionResult FollowUser(int FollowingId) {
+
+            System.Console.WriteLine("Hitting function");
+
+
+            return RedirectToAction("UserProfile", FollowingId);
+        }
+
 
 
     }

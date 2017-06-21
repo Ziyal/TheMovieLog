@@ -1,7 +1,7 @@
 @Html.Partial("Navbar-LoggedIn")
 
 <h1>@ViewBag.CurrentList[0].Name</h1>
-<h3 class="subtitle">Created by <a href="user_profile/@ViewBag.CurrentList[0].UserId">@ViewBag.CurrentList[0].User.FirstName</a></h3>
+<h3 class="subtitle">Created by <a href="/user_profile/@ViewBag.CurrentList[0].UserId">@ViewBag.CurrentList[0].User.FirstName</a></h3>
 
 <div class="list_container">
     <table class="table table-striped">

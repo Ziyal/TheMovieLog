@@ -1,0 +1,20 @@
+@Html.Partial("Navbar-LoggedIn")
+
+<h1>EDIT LIST</h1>
+<hr>
+
+<div class="list_container">
+
+        <form action="/update_list/@ViewBag.List.ListId" method="post">
+            <h5 class="edit_profile_title">Name</h5> 
+            <input type="text" name="Name" value="@ViewBag.List.Name" class="form-control">
+
+            <h5 class="edit_profile_title">Description</h5> 
+            <input type="text" name="Description" value="@ViewBag.List.Description" class="form-control">
+
+            <input type="submit" value="Save" class="btn btn-success btn-block"><br>
+
+        </form>
+
+    <a href="/lists"><button class="btn btn-default btn-block">Back</button></a>
+</div>
