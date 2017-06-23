@@ -4,15 +4,26 @@
     <h1>@ViewBag.CurrentUser[0].FirstName @ViewBag.CurrentUser[0].LastName</h1>
     <hr>
 
-    <div class="profile_container">
-        <h5 class="profile_title">Bio:</h5>
-        <p class="profile_text">@ViewBag.CurrentUser[0].About</p>
+    <div class="about_container">
+        @{
+            if(@ViewBag.User.ProfilePicture == null){
+                <img src="~/images/avatars/blank.png" alt="ProfilePicture" class="explore_profile_picture">        
+            }
+            else {
+            <img src="@ViewBag.CurrentUser[0].ProfilePicture" alt="ProfilePicture" class="explore_profile_picture">        
 
-        <h5 class="profile_title">Favorite Movie:</h5>
-        <p class="profile_text">@ViewBag.CurrentUser[0].FavoriteMovie</p>
+            }
+        }
+        <div class="profile_container">
+            <h5 class="profile_title">Bio:</h5>
+            <p class="profile_text">@ViewBag.CurrentUser[0].About</p>
 
-        <h5 class="profile_title">User Since:</h5>
-        <p class="profile_text">@ViewBag.CurrentUser[0].CreatedAt.ToString("MM/dd/yyyy")</p>
+            <h5 class="profile_title">Favorite Movie:</h5>
+            <p class="profile_text">@ViewBag.CurrentUser[0].FavoriteMovie</p>
+
+            <h5 class="profile_title">User Since:</h5>
+            <p class="profile_text">@ViewBag.CurrentUser[0].CreatedAt.ToString("MM/dd/yyyy")</p>
+        </div>
     </div>
 
     <!--<button class="btn btn-block"><a href="/follow/@ViewBag.CurrentUser[0].UserId">Follow @ViewBag.CurrentUser[0].FirstName @ViewBag.CurrentUser[0].LastName</a></button>

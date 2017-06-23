@@ -1,16 +1,38 @@
+@{
+    ViewData["Title"] = "Update Profile";
+}
+
 @Html.Partial("Navbar-LoggedIn")
 
-<!--<div class="container">-->
     <div class="edit_container">
         <h1>Edit Profile</h1>
         <hr>
 
-        <!--<h5 class="edit_profile_title">Profile Photo</h5>-->
-        <!--<form action="upload_profile_image" method="post" enctype="multipart/form-data">
-            <input type="file" name="ProfilePicture">
-            <input type="submit" value="Upload" class="btn btn-success">
-        </form>-->
+    @{
+        if(@ViewBag.User.ProfilePicture == null){
+            <img src="~/images/avatars/blank.png" alt="ProfilePicture" class="edit_profile_picture">        
+        }
+        else {
+          <img src="@ViewBag.User.ProfilePicture" alt="ProfilePicture" class="edit_profile_picture">        
 
+        }
+    }
+        <div class="upload_picture">
+            <h5 class="edit_profile_title">Profile Photo</h5>
+            <form asp-action="UploadProfilePicture" 
+                asp-controller="Profile" 
+                method="post"
+                enctype="multipart/form-data">
+                <input type="file" name="ProfilePicture"/>
+                <input type="submit" value="Upload"/>
+            </form>
+        </div>
+
+        @{
+            if(@ViewBag.Success != null) {
+                <h6 class="success_message alert alert-success">@ViewBag.Success</h6>
+            }
+        }
         <form action="update_profile/@ViewBag.User.UserId" method="post">
             <h5 class="edit_profile_title">First Name</h5> 
             <input type="text" name="FirstName" value="@ViewBag.User.FirstName" class="form-control">
@@ -31,6 +53,12 @@
 
         </form>
 
-        <a href="profile"><button class="btn btn-default btn-block">Back</button></a>
+        <a href="/profile"><button class="btn btn-default btn-block">Back</button></a>
     </div>
-<!--</div>-->
+
+<script type="text/javascript">
+        $(function() {
+
+            $(".success_message").delay(1000).fadeOut("slow");
+        });
+</script>

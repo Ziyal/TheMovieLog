@@ -19,6 +19,8 @@ namespace MovieLog.Models
 
         public string FavoriteMovie { get; set; }
 
+        public string ProfilePicture { get; set; }
+
         public List<List> Lists { get; set; }
 
         public List<Follower> Followers { get; set; }

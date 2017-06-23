@@ -10,22 +10,33 @@
         }
     }
 
-    <div class="profile_container">
-        <h5 class="profile_title">Name</h5> 
-        <p class="profile_text">@ViewBag.User.FirstName @ViewBag.User.LastName</p>
 
-        <h5 class="profile_title">Email</h5>
-        <p class="profile_text">@ViewBag.User.Email</p>
+    @{
+        if(@ViewBag.User.ProfilePicture == null){
+            <img src="~/images/avatars/blank.png" alt="ProfilePicture" class="profile_picture">        
+        }
+        else {
+          <img src="@ViewBag.User.ProfilePicture" alt="ProfilePicture" class="profile_picture">        
 
-        <h5 class="profile_title">About Me</h5>
-        <p class="profile_text">@ViewBag.User.About</p>
+        }
+    }
 
-        <h5 class="profile_title">Favorite Movie</h5>
-        <p class="profile_text">@ViewBag.User.FavoriteMovie</p>
+        <div class="profile_container">
+            <h5 class="profile_title">Name</h5> 
+            <p class="profile_text">@ViewBag.User.FirstName @ViewBag.User.LastName</p>
 
-        <h5 class="profile_title">User Since</h5>
-        <p class="profile_text">@ViewBag.User.CreatedAt.ToString("MMMM yyyy")</p>
-    </div>
+            <h5 class="profile_title">Email</h5>
+            <p class="profile_text">@ViewBag.User.Email</p>
+
+            <h5 class="profile_title">About Me</h5>
+            <p class="profile_text">@ViewBag.User.About</p>
+
+            <h5 class="profile_title">Favorite Movie</h5>
+            <p class="profile_text">@ViewBag.User.FavoriteMovie</p>
+
+            <h5 class="profile_title">User Since</h5>
+            <p class="profile_text">@ViewBag.User.CreatedAt.ToString("MMMM yyyy")</p>
+        </div>
 
     <a href="profile/edit"><button class="btn btn-default btn-block">Edit Profile</button></a>
 </div>

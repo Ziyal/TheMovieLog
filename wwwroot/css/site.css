@@ -1,5 +1,13 @@
-* {
+/** {
   border-radius: 0 !important;
+}*/
+
+.btn {
+  border-radius: 0px;
+}
+
+input {
+  border-radius: 0px;
 }
 
 h1 {
@@ -72,6 +80,7 @@ td {
   background-color: #00558b;
   border-color: #00558b;
   margin: 0px;
+  border-radius: 0px;
 }
 .navbar-default .navbar-brand {
   color: #ffffff;
@@ -280,19 +289,22 @@ ul {
   font-family: 'Jura', sans-serif;
   font-size: 16px;
   margin-bottom: 2px;
-  margin-top: 15px;
+  margin-top: 12px;
 }
 
 .profile_container {
-  width: 100%;
-  display: block;
+  display: inline-block;
+  vertical-align: top;
+  width: 70%;
+  /*display: block;*/
   margin: 0 auto;
   margin-bottom: 30px;
 }
 
+
 .profile_title {
   display: inline-block;
-  width: 45%;
+  width: 28%;
   font-family: 'Jura', sans-serif;
   font-size: 16px;
   font-weight: bold;
@@ -302,9 +314,32 @@ ul {
   text-align: right;
 }
 
+.profile_picture {
+  display: inline-block;
+  width: 25%;
+  max-width: 250px;
+  margin-left: 30px;
+  margin-top: 20px;
+  border-radius: 50%;
+}
+
 .profile_text {
   display: inline-block;
-  width: 49%;
+  width: 65%;
+} 
+
+/* EDIT PROFILE */
+.edit_profile_picture {
+  display: inline-block;
+  width: 120px;
+  border-radius: 100%;
+}
+
+.upload_picture {
+  display: inline-block;
+  width: 200px;
+  margin-left: 10px;
+  /*margin-top: 5%;*/
 }
 
 /* EXPLORE */
@@ -318,6 +353,19 @@ ul {
   width: 70%;
   height: 250px;
   overflow: auto;
+}
+
+.about_container {
+  margin-bottom: 30px;
+}
+
+.explore_profile_picture {
+  display: inline-block;
+  width: 20%;
+  max-width: 200px;
+  margin-left: 30px;
+  /*margin-top: 20px;*/
+  border-radius: 50%;
 }
 
 .user_profile_title {
@@ -343,5 +391,10 @@ ul {
 
 .list_delete_btn {
   display: inline-block;
+}
+
+.avatar {
+  width: 30px;
+  border-radius: 100%;
 }
 

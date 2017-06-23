@@ -8,6 +8,7 @@
         <div class="explore_users">
             <table class="table table">
                 <thead>
+                    <th>Avatar</th>
                     <th>Name</th>
                     <th>User Since</th>
                 </thead>
@@ -15,6 +16,7 @@
                 @{
                     foreach(var user in @ViewBag.AllUsers) {
                     <tr>
+                        <td><img src="@user.ProfilePicture" class="avatar" alt="avatar"></td>
                         <td><a href="/user_profile/@user.UserId">@user.FirstName @user.LastName</a></td>
                         <td>@user.CreatedAt.ToString("MMMM yyyy")</td>
 

@@ -68,7 +68,7 @@ namespace MovieLog.Controllers
             CurrentList.Name = model.Name;
             CurrentList.Description = model.Description;
 
-            _context.SaveChanges();
+            // _context.SaveChanges();
 
             return RedirectToAction("Index");
         }
