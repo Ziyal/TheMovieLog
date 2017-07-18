@@ -17,7 +17,12 @@ h1 {
 }
 
 body {
-  background-color: #dddddd;
+  /*background-color: #dddddd;*/
+background: #f9f9f9; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(#f9f9f9, #dddddd); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#f9f9f9, #dddddd); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#f9f9f9, #dddddd); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#f9f9f9, #dddddd); /* Standard syntax */
   height: 100%; 
   width: 100%; 
   margin: 0;

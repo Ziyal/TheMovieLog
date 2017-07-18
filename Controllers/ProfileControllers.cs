@@ -69,8 +69,6 @@ namespace MovieLog.Controllers
         [HttpPost]
         [Route("UploadProfilePicture")]
         public IActionResult UploadProfilePicture(IList<IFormFile> ProfilePicture) {
-
-            System.Console.WriteLine("*****************************");
             User CurrentUser = _context.Users.SingleOrDefault(user => user.UserId == (int)HttpContext.Session.GetInt32("CurrUserId"));
             
             long size = 0;
