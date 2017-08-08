@@ -1,6 +1,6 @@
 # The Movie Log
 
-I'm using The Movie Database API to create a place where users can make lists of movies.
+As someone who likes to keep track of all the movies I watch, I created The Movie Log to easily create different lists to keep track of films I watch and all of my favorites. It utilizes The Movie Database API to search for and display information about various titles. Users can complete their profile, complete with profile picture, and can browse other users profiles and lists.
 
 __Built With:__
 * C#
@@ -20,7 +20,7 @@ __Built With:__
 ![Movie](https://github.com/Ziyal/TheMovieLog/blob/master/wwwroot/images/screenshots/movie.png "Movie")
 ![Explore](https://github.com/Ziyal/TheMovieLog/blob/master/wwwroot/images/screenshots/explore.png "Explore")
 ![User Profile](https://github.com/Ziyal/TheMovieLog/blob/master/wwwroot/images/screenshots/userprofile.png "User Profile")
-![User Profile Edit](https://github.com/Ziyal/TheMovieLog/blob/master/wwwroot/images/screenshots/userprofileedit.png "User Profile Edit")
+![User Profile Edit](https://github.com/Ziyal/TheMovieLog/blob/master/wwwroot/images/screenshots/profileedit.png "User Profile Edit")
 
 ##### Current bugs
 + list doesn't refresh after adding movie
