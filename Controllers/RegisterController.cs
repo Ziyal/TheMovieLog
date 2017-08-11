@@ -10,8 +10,7 @@ namespace MovieLog.Controllers
     public class RegisterController : Controller {
         private MovieLogContext _context;
     
-        public RegisterController(MovieLogContext context)
-        {
+        public RegisterController(MovieLogContext context) {
             _context = context;
         }
 
@@ -22,7 +21,6 @@ namespace MovieLog.Controllers
             return View("Register");
         }
 
-
         [HttpPost]
         [Route("register_user")]
 
@@ -32,6 +30,7 @@ namespace MovieLog.Controllers
             if(ModelState.IsValid) {
                 User CheckUser = _context.Users.SingleOrDefault(person => person.Email == model.Email);
 
+                // CHecks if user already exists
                 if(CheckUser != null) {
                     allErrors.Add("Email already in use");
                     TempData["Errors"] = allErrors;
@@ -46,16 +45,20 @@ namespace MovieLog.Controllers
                     Password = model.Password
                 };
 
+                // Hashes password
                 newUser.Password = Hasher.HashPassword(newUser, newUser.Password);
 
+                // Saves user to database
                 _context.Add(newUser);
                 _context.SaveChanges();
 
+                // Puts user in session
                 User user = _context.Users.SingleOrDefault(person => person.Email == model.Email);
                 HttpContext.Session.SetInt32("CurrUserId", user.UserId);
                 return RedirectToAction("Success");
 
             }
+            // If errors
             foreach(var i in ModelState.Values) {
                 if(i.Errors.Count > 0) {
                     allErrors.Add(i.Errors[0].ErrorMessage.ToString());
@@ -70,8 +73,5 @@ namespace MovieLog.Controllers
         public IActionResult Success() {
             return RedirectToAction("Dashboard", "Dashboard");
         }
-
-    
-
     }
 }

@@ -10,8 +10,7 @@ namespace MovieLog.Controllers
     public class LoginController : Controller {
         private MovieLogContext _context;
     
-        public LoginController(MovieLogContext context)
-        {
+        public LoginController(MovieLogContext context) {
             _context = context;
         }
 
@@ -41,11 +40,13 @@ namespace MovieLog.Controllers
                         return RedirectToAction("Success");
                     }
                     else {
+                        // If the password is incorrect
                         allErrors.Add("Incorrect password");
                         TempData["Errors"] = allErrors;
                     }
                 }
                 else {
+                    // If email is incorrect
                     allErrors.Add("Incorrect email");
                     TempData["Errors"] = allErrors;
                 }

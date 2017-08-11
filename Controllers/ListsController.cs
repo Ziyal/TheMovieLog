@@ -13,17 +13,18 @@ namespace MovieLog.Controllers
 
         private MovieLogContext _context;
     
-        public ListsController(MovieLogContext context)
-        {
+        public ListsController(MovieLogContext context) {
             _context = context;
         }        
 
         [HttpGet]
         [Route("lists")]
         public IActionResult Index() {
+            // Gets user from session
             User CurrentUser = _context.Users.SingleOrDefault(person => person.UserId == (int)HttpContext.Session.GetInt32("CurrUserId"));
             ViewBag.User = CurrentUser;
 
+            // All lists for user
             ViewBag.Lists = _context.Lists.Where(list => list.UserId == CurrentUser.UserId);
 
             return View("Lists");
@@ -50,9 +51,11 @@ namespace MovieLog.Controllers
         [HttpPost]
         [Route("edit_list/{ListId}")]
         public IActionResult EditList(int ListId) {
+            // Gets user from session
             User CurrentUser = _context.Users.SingleOrDefault(person => person.UserId == (int)HttpContext.Session.GetInt32("CurrUserId"));
             ViewBag.User = CurrentUser;
 
+            // Queries for matching list
             ViewBag.List = _context.Lists.SingleOrDefault(list => list.ListId == ListId);
 
             return View("EditList");
@@ -61,6 +64,7 @@ namespace MovieLog.Controllers
         [HttpPost]
         [Route("update_list/{ListId}")]
         public IActionResult UpdateList(int ListId, List model) {
+            // IN PROGRESS
 
             System.Console.WriteLine("***************************");
 
@@ -73,12 +77,10 @@ namespace MovieLog.Controllers
             return RedirectToAction("Index");
         }
 
-
-        
-
         [HttpPost]
         [Route("add_list")]
         public IActionResult AddList(List model){
+            // Creates new list
             List newList = new List {
                 Name = model.Name,
                 Description = model.Description,
@@ -95,23 +97,25 @@ namespace MovieLog.Controllers
         [Route("lists/{ListId}")]
 
         public IActionResult DisplayList(int ListId) {
-
+            // Gets user from session
             User CurrentUser = _context.Users.SingleOrDefault(person => person.UserId == (int)HttpContext.Session.GetInt32("CurrUserId"));
             ViewBag.User = CurrentUser;
 
+            // Queries for list from route params
             List<List> CurrentList = _context.Lists.Where(list => list.ListId == ListId).Include(list => list.Movies).ToList();
-
             ViewBag.List = CurrentList;
 
             return View("List");
         }
 
-
         [HttpPost]
         [Route("lists/delete_movie/{MovieId}/{ListId}")]
         public IActionResult DeleteMovie(int MovieId, int ListId) {
 
+            // Queries for movie from list in route params
             List<Movie> MovieToRemove = _context.Movies.Where(movie => movie.ListId == ListId).ToList();
+
+            // Removes movie with ListId from list
             foreach(var movie in MovieToRemove) {
                 if(movie.MovieId == MovieId) {
                     _context.Remove(movie);
@@ -126,14 +130,7 @@ namespace MovieLog.Controllers
         [Route("SelectedMovie")]
         public IActionResult SelectedMovie(Movie model) {
 
-            // var movieName = "";
-
-            // for(var i = 0; i < model.Title.Length; i++) {
-            //     if(model.Title[i] == "'") {
-
-            //     }
-            // }
-
+            // Saves movie to list
             Movie newMovie = new Movie {
                 Id = model.Id,
                 Title = model.Title,
@@ -153,6 +150,7 @@ namespace MovieLog.Controllers
         [HttpGet]
         [Route("movie/{id}")]
         public IActionResult Movie(int id) {
+            // Gets user from session
             ViewBag.User = _context.Users.SingleOrDefault(person => person.UserId == (int)HttpContext.Session.GetInt32("CurrUserId"));
 
             ViewBag.ApiId = id;
